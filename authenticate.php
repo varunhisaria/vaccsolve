@@ -1,4 +1,7 @@
 <?php 
+	
+	include 'db_connect.php';
+
 	if(isset($_POST['org'])){
 		$response;
 		if($_POST['org'] == "NGO"){
@@ -16,14 +19,7 @@
 	}
 
 function login($id, $pswrd, $table){
-	$con = mysqli_connect("localhost","root","tiger","vaccslove");
-	// Check connection
-	if (mysqli_connect_errno())
-	{
-	  //echo "Failed to connect to MySQL: " . mysqli_connect_error();
-		$reponse = "Failed to connect to DB";
-	}
-	else{
+	$con = open_connection();
 		$sql_query="SELECT pswrd from $table where id='" . $id. "'";
 		if($result= mysqli_query($con,$sql_query)){
 			if(mysqli_num_rows($result)>0){
@@ -48,7 +44,6 @@ function login($id, $pswrd, $table){
 			$reponse = "There was some technical difficulty. Please try again later";
 		//	echo mysql_error($con);
 		}
-	}
 	return $reponse;
 }
 
