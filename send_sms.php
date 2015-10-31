@@ -4,7 +4,7 @@ $post_data = array(
     // For promotional, this will be ignored by the SMS gateway
     'From'   => '08039511971',
     'To'    => '09007650221',
-    'Body'  => 'Your child have been registered on our system. The ID is ', //Incase you are wondering who Dr. Rajasekhar is http://en.wikipedia.org/wiki/Dr._Rajasekhar_(actor)
+    'Body'  => 'Roger that! You will no longer receive calls from us', //Incase you are wondering who Dr. Rajasekhar is http://en.wikipedia.org/wiki/Dr._Rajasekhar_(actor)
 );
  
 $exotel_sid = "personal49"; // Your Exotel SID - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
