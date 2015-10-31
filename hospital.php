@@ -1,4 +1,7 @@
 <?php
+
+include 'db_connect.php';
+
 session_start();
 
 if(isset($_POST['signup'])){
@@ -9,7 +12,7 @@ else if(isset($_POST['login'])){
 }
 else if(isset($_POST['logout'])){
 	$_SESSION['id']="";
-	$_SESSION['type']=""
+	$_SESSION['type']="";
 }
 
 function register(){
