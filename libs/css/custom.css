@@ -1,0 +1,12 @@
+.main-container{
+	margin-top: 50px;
+}
+.modal-content{
+	border-radius: 0px;
+}
+.modal-header{
+	text-align: center;
+}
+.org-chooser{
+	text-align: center;
+}
