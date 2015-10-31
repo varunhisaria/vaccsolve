@@ -9,6 +9,7 @@ function insert_child(){
 	$father=$_POST['father'];
 	$mother=$_POST['mother'];
 	$date=$_POST['date'];
+	$sex=$_POST['sex'];
 	$contact=$_POST['contact'];
 	$hid=$_SESSION['id'] ."/". $_POST['serial'];
 	$address=$_POST['address'];
@@ -25,7 +26,7 @@ function insert_child(){
 		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	else{
-		$sql_query="INSERT INTO child (hid,mother,father,dob,address,city,state,pin,lat,lng,contact) VALUES('$hid','$mother','$father','$dob','$address','$city','$state',$pin,0,0,$contact)";
+		$sql_query="INSERT INTO child (hid,mother,father,dob,sex,address,city,state,pin,lat,lng,contact) VALUES('$hid','$mother','$father','$dob','$sex','$address','$city','$state',$pin,0,0,$contact)";
 		echo $sql_query;
 		if(mysqli_query($con,$sql_query))
 		{
@@ -57,6 +58,7 @@ function insert_child(){
 	<input type="text" name="father" placeholder="Father's Name" required />
 	<input type="text" name="mother" placeholder="Mother's Name" required />
 	<input type="text" name="date" placeholder="Date Of Birth" required />
+	<input type="text" name="sex" placeholder="Sex" required />
 	<input type="text" name="contact" placeholder="Contact Number" required />
 	<input type="text" name="serial" placeholder="Serial Number" required />
 	<input type="text" name="address" placeholder="Street Address" required />
