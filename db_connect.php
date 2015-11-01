@@ -1,6 +1,6 @@
 <?php
 	function open_connection(){
-		$con = mysqli_connect("localhost","root","tiger","vaccslove");
+		$con = mysqli_connect("ap-cdbr-azure-southeast-a.cloudapp.net","bd98cbac27a25d","4bf0227e","vaccsolve");
 		// Check connection
 		if (mysqli_connect_errno())
 		{
