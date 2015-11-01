@@ -7,17 +7,18 @@ if(isset($_POST['register'])){
 
 function insert_child(){
 	$father=$_POST['father'];
-	$mother=$_POST[''];
-	$=$_POST[''];
-	$=$_POST[''];
-	$pswrd=$_POST['pswrd'];
-	$cnf_pswrd=$_POST['cnf_pswrd'];
+	$mother=$_POST['mother'];
+	$date=$_POST['date'];
+	$sex=$_POST['sex'];
+	$contact=$_POST['contact'];
+	$hid=$_SESSION['id'] ."/". $_POST['serial'];
 	$address=$_POST['address'];
 	$city=$_POST['city'];
 	$state=$_POST['state'];
 	$pin=$_POST['pin'];
-	$contact=$_POST['contact'];
-	print_r($_POST);
+	
+	
+	//print_r($_POST);
 	$con = mysqli_connect("localhost","root","tiger","vaccslove");
 	// Check connection
 	if (mysqli_connect_errno())
@@ -25,15 +26,14 @@ function insert_child(){
 		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	else{
-		$sql_query="INSERT INTO hospital (name,pswrd,address,city,state,pin,lat,lng,contact) VALUES('$name','$pswrd','$address','$city','$state',$pin,0,0,$contact)";
+		$sql_query="INSERT INTO child (hid,mother,father,dob,sex,address,city,state,pin,lat,lng,contact) VALUES('$hid','$mother','$father','$dob','$sex','$address','$city','$state',$pin,0,0,$contact)";
 		echo $sql_query;
 		if(mysqli_query($con,$sql_query))
 		{
 			
-			$id=mysqli_insert_id($con);
-			$_SESSION['id']=$id;
-			$_SESSION['type']="hospital";
-			echo "SUCCEESS".$id;
+		
+			
+			echo "SUCCEESS";
 			//redirect to home page	
 		}
 		else{
@@ -58,7 +58,9 @@ function insert_child(){
 	<input type="text" name="father" placeholder="Father's Name" required />
 	<input type="text" name="mother" placeholder="Mother's Name" required />
 	<input type="text" name="date" placeholder="Date Of Birth" required />
+	<input type="text" name="sex" placeholder="Sex" required />
 	<input type="text" name="contact" placeholder="Contact Number" required />
+	<input type="text" name="serial" placeholder="Serial Number" required />
 	<input type="text" name="address" placeholder="Street Address" required />
 	<input type="text" name="city" placeholder="City" required />
 	<input type="text" name="state" placeholder="State" required />
