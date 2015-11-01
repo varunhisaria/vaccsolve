@@ -5,6 +5,7 @@ if(isset($_POST['register'])){
 	insert_child();
 }
 
+<<<<<<< Updated upstream
 function insert_child(){
 	$father=$_POST['father'];
 	$mother=$_POST['mother'];
@@ -42,6 +43,9 @@ function insert_child(){
 		mysqli_close($con);	
 	}	
 }
+=======
+
+>>>>>>> Stashed changes
 ?>
 
 
