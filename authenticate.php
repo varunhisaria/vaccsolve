@@ -1,11 +1,7 @@
 <?php 
-<<<<<<< Updated upstream
-	
-	include 'db_connect.php';
-=======
 session_start();
 include 'db_connect.php';
->>>>>>> Stashed changes
+
 
 	if(isset($_POST['org'])){
 		$response;
@@ -36,9 +32,8 @@ function logout(){
 
 function login($id, $pswrd, $table){
 	$con = open_connection();
-<<<<<<< Updated upstream
 		$sql_query="SELECT pswrd from $table where id='" . $id. "'";
-=======
+
 	// Check connection
 	if (mysqli_connect_errno())
 	{
@@ -49,7 +44,7 @@ function login($id, $pswrd, $table){
 	else{
 		$sql_query="SELECT pswrd from $table where name='" . $id. "'";
 		//echo $sql_query;
->>>>>>> Stashed changes
+
 		if($result= mysqli_query($con,$sql_query)){
 			if(mysqli_num_rows($result)>0){
 				$row=mysqli_fetch_assoc($result);
@@ -78,12 +73,12 @@ function login($id, $pswrd, $table){
 			$response['error_code']=0;
 		//	echo mysql_error($con);
 		}
-<<<<<<< Updated upstream
+
 	return $reponse;
-=======
+
 	}
 	echo json_encode($response);
->>>>>>> Stashed changes
+
 }
 
 ?>

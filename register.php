@@ -8,6 +8,7 @@
     	<input type="radio" name="org" value="HOSPITAL">&nbsp;Hospital
     	<h2 style="display:inline-block">?</h2>
   	</div>
+  	<div id="response"></div>
   <script type="text/javascript">
   	$("input[name=org]:radio").change(function(){
   		var val =  $('input[name=org]:checked').val();
@@ -19,7 +20,11 @@
   			$("#ngo-form").hide();
   			$("#hospital-form").show();
   		}
-  	})
+  	});
+   $(document).ready(function(){
+   		$("#hospital-form").hide();
+   });	
+
   </script>
   <form id="ngo-form">
   	<div class="form-group">
@@ -76,7 +81,13 @@
 				data:{name: name, password: password, address: address, city: city, state: state, pin: pincode, contact: contact, org:"hospital"},
 				method: "POST",
 				success:function(e){
-					console.log(e);
+					 response = JSON.parse(e);
+			         if(response.error_code=="1"){
+			            console.log("Login");
+			            window.location.href="http://localhost/vaccsolve/dashboard.php";
+			         }
+			         else
+			         	$("#response").text(response.response);			         }
 				}
 			});
 		}
@@ -95,7 +106,13 @@
 				data:{name: name, password: password, uid:uid, state: state, org:"ngo"},
 				method:"POST",
 				success:function(e){
-					console.log(e);
+				 		response = JSON.parse(e);
+			         if(response.error_code=="1"){
+			            console.log("Login");
+			            window.location.href="http://localhost/vaccsolve/dashboard.php";
+			         }
+			         else
+			         	$("#response").text(response.response);	
 				}
 			});
 		}

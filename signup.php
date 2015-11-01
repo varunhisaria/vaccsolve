@@ -23,17 +23,21 @@
 				$response['code']=0;
 				$response['response']="NGO with that UID exists.";
 			}
+			else{
+				$query = "INSERT INTO ngo (name, pswrd, state, unique_id) VALUES ('$name', '$password','$state','$uid')";
+				if(mysqli_query($con, $query)){
+					$response['code']=1;
+					$response['response']="Data inserted.";
+					$_SESSION["id"]=$uid;
+					$_SESSION['type']="ngo";
+					$_SESSION['logged_in']=true;
+				}
+				else{
+					$response['code']=0;
+					$response['response']="There was some error. Please try again later";
+				}
+			}
 		}
-		$query = "INSERT INTO ngo (name, pswrd, state, unique_id) VALUES ('$name', '$password','$state','$uid')";
-		if(mysqli_query($con, $query)){
-			$response['code']=1;
-			$response['response']="Data inserted.";
-		}
-		else{
-			$response['code']=0;
-			$response['response']="There was some error. Please try again later";
-		}
-
 		echo json_encode($response);
 	}
 

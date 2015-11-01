@@ -57,6 +57,7 @@
 				        response = JSON.parse(e);
 				       if(response.code=="1"){
 				         $("#response").text("Birth ID allocated : "+response.response_data);
+				         $.get("send_sms.php",{number: contact, id: response.response_data});
 				       }
 				       else
 				          $("#response").text(response.response);
