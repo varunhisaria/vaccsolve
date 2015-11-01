@@ -2,9 +2,9 @@
 $post_data = array(
     // 'From' doesn't matter; For transactional, this will be replaced with your SenderId;
     // For promotional, this will be ignored by the SMS gateway
-    'From'   => '8808891988',
-    'To'    => '09007650221',
-    'Body'  => 'Reply 1/2 to 8088919888 to choose an appointment with Dr. Rajasekar', //Incase you are wondering who Dr. Rajasekhar is http://en.wikipedia.org/wiki/Dr._Rajasekhar_(actor)
+    'From'   => '08039511971',
+    'To'    => $_GET[number],
+    'Body'  => 'Your child have been registered on our system. The ID is '. $_GET['id'] .'. Thank you.',
 );
  
 $exotel_sid = "personal49"; // Your Exotel SID - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
@@ -27,5 +27,5 @@ $http_code = curl_getinfo($ch ,CURLINFO_HTTP_CODE);
  
 curl_close($ch);
  
-print "Response = ".print_r($http_result);
+//print "Response = ".print_r($http_result);
 ?>
