@@ -18,5 +18,3 @@ function getLatLng(address){
 	var geocoder = new google.maps.Geocoder();
 	return geocodeAddress(geocoder, address);
 }
-
-function focusMap()

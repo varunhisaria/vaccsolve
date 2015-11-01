@@ -11,14 +11,18 @@ else if(isset($_POST['login'])){
 	login();
 }
 else if(isset($_POST['logout'])){
+<<<<<<< Updated upstream
 	$_SESSION['id']="";
 	$_SESSION['type']="";
+=======
+	session_destroy();
+>>>>>>> Stashed changes
 }
 
 function register(){
 	$name=$_POST['name'];
 	$pswrd=$_POST['pswrd'];
-	$cnf_pswrd=$_POST['cnf_pswrd'];
+	//$cnf_pswrd=$_POST['cnf_pswrd'];
 	$address=$_POST['address'];
 	$city=$_POST['city'];
 	$state=$_POST['state'];
@@ -36,7 +40,6 @@ function register(){
 		echo $sql_query;
 		if(mysqli_query($con,$sql_query))
 		{
-			
 			$id=mysqli_insert_id($con);
 			$_SESSION['id']=$id;
 			$_SESSION['type']="hospital";
@@ -50,42 +53,9 @@ function register(){
 	}	
 }
 
-function login(){
-	$id=$_POST['id'];
-	$pswrd=$_POST['pswrd'];
-	$con = mysqli_connect("localhost","root","tiger","vaccslove");
-	// Check connection
-	if (mysqli_connect_errno())
-	{
-	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	}
-	else{
-		$sql_query="SELECT pswrd from hospital where id='" . $id. "'";
-		if($result= mysqli_query($con,$sql_query)){
-			if(mysqli_num_rows($result)>0){
-				$row=mysqli_fetch_assoc($result);
-				//echo $row['pswrd'];
-				if($row['pswrd']==$pswrd){
-					echo "Welcome";
-					$_SESSION['id']=$id;
-					$_SESSION['type']="hospital";
-					//redirect to home
-				}
-				else{
-					echo "Invalid password";
-				}
-			}
-			else{
-				echo "User does not exist";
-			}
-		}
-		else{
-			echo mysql_error($con);
-		}
-	}
-}
-?>
 
+?>
+<?php require_once('includes/header.php'); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
