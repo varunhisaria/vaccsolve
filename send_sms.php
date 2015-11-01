@@ -6,7 +6,7 @@ $post_data = array(
     'To'    => $_GET[number],
     'Body'  => 'Your child have been registered on our system. The ID is '. $_GET['id'] .'. Thank you.',
 );
- 
+
 $exotel_sid = "personal49"; // Your Exotel SID - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
 $exotel_token = "220a59c09c839294ceec0c535c41d3ae49164b9b"; // Your exotel token - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
  
